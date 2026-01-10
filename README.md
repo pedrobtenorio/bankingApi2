@@ -36,11 +36,16 @@ API RESTful para lancamentos de debito/credito em contas e consulta de saldo.
 ### Criar conta
 `POST /accounts`
 
-Request:
+Request (opcional):
 ```json
 {
   "initialBalance": 100.00
 }
+```
+
+Sem body:
+```json
+{}
 ```
 
 Response (201):

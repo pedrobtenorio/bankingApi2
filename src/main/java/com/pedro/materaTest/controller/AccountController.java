@@ -71,8 +71,9 @@ public class AccountController {
             @ApiResponse(responseCode = "201", description = "Account created"),
             @ApiResponse(responseCode = "400", description = "Invalid request")
     })
-    public CreateAccountResponse createAccount(@Valid @RequestBody CreateAccountRequest request) {
-        var account = accountService.createAccount(request.getInitialBalance());
+    public CreateAccountResponse createAccount(@Valid @RequestBody(required = false) CreateAccountRequest request) {
+        BigDecimal initialBalance = request == null ? null : request.getInitialBalance();
+        var account = accountService.createAccount(initialBalance);
         return new CreateAccountResponse(account.getId(), account.getBalance());
     }
 }
