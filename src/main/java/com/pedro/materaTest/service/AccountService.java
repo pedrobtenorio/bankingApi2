@@ -37,7 +37,7 @@ public class AccountService {
         Account account = accountRepository.findByIdForUpdate(accountId)
                 .orElseThrow(() -> new AccountNotFoundException(accountId));
 
-                BigDecimal balance = account.getBalance();
+        BigDecimal balance = account.getBalance();
         List<LedgerEntry> entries = new ArrayList<>(requests.size());
 
         for (LedgerEntryRequest request : requests) {
@@ -80,4 +80,4 @@ public class AccountService {
         Account account = Account.create(initialBalance);
         return accountRepository.save(account);
     }
- }
+}
