@@ -26,15 +26,26 @@ API RESTful para lancamentos de debito/credito em contas e consulta de saldo.
 - UI: http://localhost:8080/swagger-ui/index.html
 - OpenAPI: http://localhost:8080/v3/api-docs
 
+## H2 Console
+- URL: http://localhost:8080/h2-console
+- JDBC URL: jdbc:h2:mem:bankingApi
+- User: sa
+- Password: (vazio)
+
 ## Endpoints
 ### Criar conta
 `POST /accounts`
 
-Request:
+Request (opcional):
 ```json
 {
   "initialBalance": 100.00
 }
+```
+
+Sem body:
+```json
+{}
 ```
 
 Response (201):
