@@ -45,6 +45,7 @@ public class AccountService {
         persistEntries(entries);
         return new ApplyEntriesResult(balance, entries);
     }
+
     @Transactional(readOnly = true)
     public BigDecimal getBalance(UUID accountId) {
         Account account = accountRepository.findById(accountId)
